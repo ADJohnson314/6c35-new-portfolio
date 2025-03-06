@@ -1,9 +1,12 @@
 <svelte:head>
   <title>Projects - Ayden Johnson: Personal site and 6.C35 portfolio</title>
 </svelte:head>
-<h1>Projects</h1>
+<script>
+    import projects from "$lib/projects.json";
+</script>  
+<h1>{ projects.length } Projects</h1>
 <div class="projects">
-    <a class="projectlink" href="../Assignment_2/A2_report.html">
+    <!-- <a class="projectlink" href="../Assignment_2/A2_report.html">
         <article>
             <h2>Assignment 2</h2>
             <img src="../Assignment_2/images/fig1.png" alt="A bar graph comparing the average populations of two different types of municipalities.">
@@ -16,13 +19,15 @@
             <img src="../Assignment_3/images/6.c35_a3_revision.png" alt="A multi-colored line graph displaying new COVID-19 cases from 2020 to 2022.">
             <p>This assignment is an analysis and revision of a graph displaying data on COVID-19 cases from 2020 to 2022.</p>
         </article>
-    </a>
-    <article>
-        <h2>Nihil consectetur iure eius.</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Molestiae est eum facilis placeat delectus corporis quae dignissimos doloremque saepe quis cupiditate voluptatum tempora nemo quas, aspernatur, at voluptatibus reprehenderit. Quam vel deserunt, reiciendis sunt dignissimos voluptates quidem expedita.</p>
-    </article>
-    <article>
+    </a> -->
+    {#each projects as p}
+        <article>
+            <h2>{p.title}</h2>
+            <img src={p.image} alt="">
+            <p>{p.description}</p>
+        </article>
+    {/each}
+    <!-- <article>
         <h2>Quis debitis id nulla!</h2>
         <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
         <p>Nemo ut, et quasi ex laborum nihil possimus omnis suscipit at aliquid soluta libero. Fugiat soluta hic dignissimos dolorem distinctio, provident culpa illum rem id mollitia esse praesentium ullam. Vitae!</p>
@@ -66,5 +71,5 @@
         <h2>At repellat nobis cumque!</h2>
         <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
         <p>Ex nesciunt aliquid eligendi vitae autem vero necessitatibus consequatur, corrupti dolor qui obcaecati esse dolorem id quas, asperiores quos! Architecto fuga blanditiis autem cum eveniet beatae accusamus saepe aut vitae.</p>
-    </article>
+    </article> -->
 </div>
