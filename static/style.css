@@ -1,0 +1,142 @@
+body {
+    /* Set line height to 1.5 times the font size
+       and use the OS’s UI font as the website font
+     */
+    font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-inline: auto;
+    padding: 16px;
+   }
+
+nav {
+  display: flex;
+  margin-bottom: 8px;
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.current {
+  border-bottom: 0.4em solid var(--border-color);
+}
+
+.projectlink {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  padding: 0em;
+}
+
+html {
+  --color-accent: oklch(87.51% 0.30444 151.1848 / 40%);
+  color-scheme: dark;
+}
+
+a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+form {
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+input {
+  font: inherit;
+}
+
+textarea {
+  font: inherit;
+}
+
+button {
+  font: inherit;
+  grid-column: 1 / -1;
+}
+
+select {
+  font-family: inherit;
+  font-size: 80%;
+}
+
+label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+img {
+  max-width: 100%;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+}
+
+article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  padding: 0.5em;
+}
+
+h1 {
+  font: 200%/1.5 system-ui;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h2 {
+  margin: 0.3em;
+  line-height: 1.1;
+  text-wrap: balance;
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h4 {
+  margin: 0;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h5 {
+  margin: 0;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h6 {
+  margin: 0;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+section {
+  padding: 16px;
+  border-style: solid;
+  border-color: var(--color-accent);
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  gap: 4px;
+}
