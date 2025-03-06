@@ -1,7 +1,5 @@
 console.log("IT’S ALIVE!");
 
-const ARE_WE_HOME = document.documentElement.classList.contains("home");
-
 function $$ (selector, context = document) {
 	return Array.from(context.querySelectorAll(selector));
 }
@@ -13,7 +11,7 @@ function $$ (selector, context = document) {
 // // currentLink?.classList.add("current");
 
 let pages = [
-	{url: ".", title: "Home"},
+	{url: "./", title: "Home"},
 	{url: "projects", title: "Projects"},
     {url: "contact", title: "Contact"},
 	{url: "resume", title: "Resume"},
@@ -39,9 +37,6 @@ for (let p of pages) {
 	let url = p.url;
 	let title = p.title;
 	// Create link and add it to nav
-    if (!ARE_WE_HOME && !url.startsWith("http")) {
-        url = "../" + url;
-    }    
 	let a = document.createElement("a");
     a.href = url;
     a.textContent = title;
