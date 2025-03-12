@@ -3,10 +3,10 @@
     import "../style.css";
 
     let pages = [
-    { url: ".", title: "Home" },
-    { url: ".projects", title: "Projects" },
-    { url: ".contact", title: "Contact" },
-    { url: ".resume", title: "Resume" },
+    { url: "/", title: "Home" },
+    { url: "/projects", title: "Projects" },
+    { url: "/contact", title: "Contact" },
+    { url: "/resume", title: "Resume" },
     {url: "https://github.com/ADJohnson314", title: "Github"},
     ];
 
@@ -29,12 +29,11 @@
             <option value="dark">Dark</option>
         </select>
     </label>
-    {"." + $page.route.id}
     <nav>
         {#each pages as p}
             <a
             href={p.url}
-            class:current={"." + $page.route.id === p.url}
+            class:current={$page.route.id === p.url}
             target={p.url.startsWith("http") ? "_blank" : null}
             >
                 {p.title}
