@@ -10,13 +10,13 @@ function $$ (selector, context = document) {
 
 // // currentLink?.classList.add("current");
 
-let pages = [
-	{url: ".", title: "Home"},
-	{url: "projects", title: "Projects"},
-    {url: "contact", title: "Contact"},
-	{url: "resume", title: "Resume"},
-    {url: "https://github.com/ADJohnson314", title: "Github"}
-];
+// let pages = [
+// 	{url: ".", title: "Home"},
+// 	{url: "projects", title: "Projects"},
+//     {url: "contact", title: "Contact"},
+// 	{url: "resume", title: "Resume"},
+//     {url: "https://github.com/ADJohnson314", title: "Github"}
+// ];
 
 document.body.insertAdjacentHTML("afterbegin", `
 	<label class="color-scheme">
@@ -30,25 +30,25 @@ document.body.insertAdjacentHTML("afterbegin", `
 );
 
 
-let nav = document.createElement("nav");
-document.body.prepend(nav);
+// let nav = document.createElement("nav");
+// document.body.prepend(nav);
 
-for (let p of pages) {
-	let url = p.url;
-	let title = p.title;
-	// Create link and add it to nav
-	let a = document.createElement("a");
-    a.href = url;
-    a.textContent = title;
-    if (a.host === location.host && a.pathname === location.pathname) {
-        a.classList.add("current");
-    }
-    if (a.host !== location.host) {
-        a.classList.add("target=");
-        a.target="_blank";
-    }
-    nav.append(a);
-}
+// for (let p of pages) {
+// 	let url = p.url;
+// 	let title = p.title;
+// 	// Create link and add it to nav
+// 	let a = document.createElement("a");
+//     a.href = url;
+//     a.textContent = title;
+//     if (a.host === location.host && a.pathname === location.pathname) {
+//         a.classList.add("current");
+//     }
+//     if (a.host !== location.host) {
+//         a.classList.add("target=");
+//         a.target="_blank";
+//     }
+//     nav.append(a);
+// }
 
 let select = document.querySelector("select");
 
