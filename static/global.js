@@ -18,18 +18,6 @@ function $$ (selector, context = document) {
 //     {url: "https://github.com/ADJohnson314", title: "Github"}
 // ];
 
-document.body.insertAdjacentHTML("afterbegin", `
-	<label class="color-scheme">
-		Theme:
-		<select>
-			<option value="light dark">Auto</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-		</select>
-	</label>`
-);
-
-
 // let nav = document.createElement("nav");
 // document.body.prepend(nav);
 
@@ -50,16 +38,6 @@ document.body.insertAdjacentHTML("afterbegin", `
 //     nav.append(a);
 // }
 
-let select = document.querySelector("select");
-
-select.addEventListener("input", function (event) {
-	console.log("color scheme changed to", event.target.value);
-    document.documentElement.style.setProperty("color-scheme", event.target.value);
-    localStorage.colorScheme = event.target.value;
-
-});
-
-if (localStorage.colorScheme) {
-	document.documentElement.style.setProperty("color-scheme", localStorage.colorScheme);
-	select.value = localStorage.colorScheme;
-}
+let root = document.documentElement;
+let colorScheme = localStorage.colorScheme ?? "light dark";
+root.style.setProperty("color-scheme", colorScheme);

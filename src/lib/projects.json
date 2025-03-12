@@ -1,62 +1,74 @@
 [
     {
-        "title": "Nihil consectetur iure eius.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Molestiae est eum facilis placeat delectus corporis quae dignissimos doloremque saepe quis cupiditate voluptatum tempora nemo quas, aspernatur, at voluptatibus reprehenderit. Quam vel deserunt, reiciendis sunt dignissimos voluptates quidem expedita."
+        "title": "Assignment 2",
+        "image": "images/fig1.png",
+        "year": 2025,
+        "description": "This assignment is an exploratory data analysis on data from various households in Massachusetts, with the goal to learn about the effects of zoning."
     },
     {
-        "title": "Quis debitis id nulla!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nemo ut, et quasi ex laborum nihil possimus omnis suscipit at aliquid soluta libero. Fugiat soluta hic dignissimos dolorem distinctio, provident culpa illum rem id mollitia esse praesentium ullam. Vitae!"
+        "title": "Assignment 3",
+        "image": "images/6.c35_a3_revision.png",
+        "year": 2025,
+        "description": "This assignment is an analysis and revision of a graph displaying data on COVID-19 cases from 2020 to 2022."
+    },
+    {
+        "title": "Assignment 4",
+        "image": "images/Race Distribution of Complaints against NYC Police Officers.png",
+        "year": 2025,
+        "description": "This assignment is a demonstration of how different design choices for a visualization can change a viewer's perception of the given data, using NYPD complaint data as an example."
     },
     {
         "title": "Cupiditate itaque dignissimos debitis?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Molestiae fuga, saepe dolorum enim deserunt ipsum, quisquam necessitatibus porro placeat reprehenderit temporibus inventore quo harum nisi qui id dolores officia odio voluptate, dolor ipsam fugit! In laboriosam aut accusamus?"
     },
     {
         "title": "Unde esse at voluptatum.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Necessitatibus temporibus dolores, nulla facilis veniam impedit. Explicabo, adipisci alias nulla est, quasi velit voluptates doloremque error quidem repellendus atque quaerat, voluptatum iure itaque! Quasi suscipit obcaecati est fuga consequatur."
     },
     {
         "title": "Aspernatur neque enim itaque.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Quaerat nobis sapiente quisquam at explicabo officia. Consequatur maxime minima nam cumque nisi labore amet accusantium ipsam aperiam, ab suscipit hic iure molestias! Odit commodi consequatur, velit saepe numquam voluptate!"
     },
     {
         "title": "Nisi sed illum aut!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Eius eligendi dolorum quas ad, neque expedita, vitae ex dolores beatae omnis fugit incidunt cupiditate dolorem quis architecto modi id assumenda culpa esse exercitationem suscipit tempore debitis facere? Dignissimos, accusantium?"
     },
     {
         "title": "Aliquam quia in quae?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Deserunt doloremque quas atque non! Enim quae excepturi accusamus cum soluta. Totam nobis nulla corrupti voluptatibus, qui animi ea facere! Expedita similique ratione error eveniet at omnis dolorum neque cupiditate."
     },
     {
         "title": "Ipsa, adipisci odio? Fugiat?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Similique, quis qui. Consequuntur harum inventore accusantium quis quam officiis ut quidem eaque excepturi assumenda! Quisquam sequi mollitia nam quis recusandae, neque suscipit debitis blanditiis alias autem deserunt, sed accusamus!"
     },
     {
         "title": "Doloremque ex maxime omnis.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Nihil sunt temporibus, excepturi veritatis reiciendis nam consequatur ipsum possimus assumenda quas praesentium fugit tenetur nostrum obcaecati rem error sint suscipit aspernatur beatae. Repellat eaque cumque eligendi, velit veniam quam?"
     },
     {
         "title": "At repellat nobis cumque!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Ex nesciunt aliquid eligendi vitae autem vero necessitatibus consequatur, corrupti dolor qui obcaecati esse dolorem id quas, asperiores quos! Architecto fuga blanditiis autem cum eveniet beatae accusamus saepe aut vitae."
     },
     {
         "title": "At repellat nobis cumque!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ex nesciunt aliquid eligendi vitae autem vero necessitatibus consequatur, corrupti dolor qui obcaecati esse dolorem id quas, asperiores quos! Architecto fuga blanditiis autem cum eveniet beatae accusamus saepe aut vitae."
-    },
-    {
-        "title": "At repellat nobis cumque!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Ex nesciunt aliquid eligendi vitae autem vero necessitatibus consequatur, corrupti dolor qui obcaecati esse dolorem id quas, asperiores quos! Architecto fuga blanditiis autem cum eveniet beatae accusamus saepe aut vitae."
     }
 ]

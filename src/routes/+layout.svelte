@@ -1,6 +1,7 @@
 <script>
     import { page } from "$app/stores";
     import "../style.css";
+
     let pages = [
     { url: "/", title: "Home" },
     { url: "/projects", title: "Projects" },
@@ -8,7 +9,26 @@
     { url: "/resume", title: "Resume" },
     {url: "https://github.com/ADJohnson314", title: "Github"},
     ];
+
+    let colorScheme = "light dark";
+    let localStorage = globalThis.localStorage ?? {};
+    let root = globalThis?.document?.documentElement;
+
+    if (localStorage.colorScheme) {
+        colorScheme = localStorage.colorScheme;
+    }
+    $: root?.style.setProperty("color-scheme", colorScheme);
+    $: localStorage.colorScheme = colorScheme;
+
 </script>
+    <label class="color-scheme">
+        Theme:
+        <select bind:value={ colorScheme }>
+            <option value="light dark">Auto</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </label>
     <nav>
         {#each pages as p}
             <a
