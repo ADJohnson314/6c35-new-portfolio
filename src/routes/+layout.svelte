@@ -3,10 +3,10 @@
     import "../style.css";
 
     let pages = [
-    { url: "/", title: "Home" },
-    { url: "/projects", title: "Projects" },
-    { url: "/contact", title: "Contact" },
-    { url: "/resume", title: "Resume" },
+    { url: "./", title: "Home" },
+    { url: "./projects", title: "Projects" },
+    { url: "./contact", title: "Contact" },
+    { url: "./resume", title: "Resume" },
     {url: "https://github.com/ADJohnson314", title: "Github"},
     ];
 
