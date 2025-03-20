@@ -65,14 +65,14 @@
     }
 
     .selected {
-        --color: color-mix(in oklch, var(--color-accent), black 75%) !important;
+        --color: color-mix(in oklch, var(--color-accent), black 50%) !important;
         
         &:is(path) {
             fill: var(--color) !important;
         }
         
         &:is(li) {
-            color: var(--color);
+            color: black;
         }
     }
 
@@ -99,11 +99,13 @@
         margin: 4px;
         flex: 1;
         height: auto;
+        background: white;
     }
     li {
         display: flex;
         align-items: center;
         gap: 8px;
+        color: black;
     }
     .container {
         display: flex;
