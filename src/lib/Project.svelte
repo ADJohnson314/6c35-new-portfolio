@@ -5,7 +5,10 @@
 <article>
     <svelte:element this={"h" + hLevel}>{data.title}</svelte:element>
     <img src={"../" + data.image} alt="">
-    <p>{data.description}</p>
+    <div>
+        <p>{data.description}</p>
+        <svelte:element this={"h" + (hLevel + 2)}>c. {data.year}</svelte:element>
+    </div>
 </article>
 <style>
     article {
