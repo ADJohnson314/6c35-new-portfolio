@@ -5,70 +5,41 @@
     import projects from "$lib/projects.json";
     import Project from "$lib/Project.svelte";
     import Pie from '$lib/Pie.svelte';
+    import * as d3 from 'd3';
+
+    let query = "";
+    $: filteredProjects = projects.filter(project => {
+        let values = Object.values(project).join("\n").toLowerCase();
+        return values.includes(query.toLowerCase());
+    });
+
+    // Make sure the variable definition is *outside* the block
+    let pieData;
+
+    $: {
+        // Initialize to an empty object every time this runs
+        pieData = {};
+        
+        // Calculate rolledData and pieData based on filteredProjects here
+        let rolledData = d3.rollups(filteredProjects, v => v.length, d => d.year);
+
+        // We don't need 'let' anymore since we already defined pieData
+        pieData = rolledData.map(([year, count]) => {
+            return { value: count, label: year };
+        });
+    }
 </script>  
 <h1>{ projects.length } Projects</h1>
-<Pie />
+<Pie data={pieData} />
+<input type="search" bind:value={query}
+       aria-label="Search projects" placeholder="🔍 Search projects…" />
 <div class="projects">
-    <!-- <a class="projectlink" href="../Assignment_2/A2_report.html">
-        <article>
-            <h2>Assignment 2</h2>
-            <img src="../Assignment_2/images/fig1.png" alt="A bar graph comparing the average populations of two different types of municipalities.">
-            <p>This assignment is an exploratory data analysis on data from various households in Massachusetts, with the goal to learn about the effects of zoning.</p>
-        </article>
-    </a>
-    <a class="projectlink" href="../Assignment_3/A3_report.html">
-        <article>
-            <h2>Assignment 3</h2>
-            <img src="../Assignment_3/images/6.c35_a3_revision.png" alt="A multi-colored line graph displaying new COVID-19 cases from 2020 to 2022.">
-            <p>This assignment is an analysis and revision of a graph displaying data on COVID-19 cases from 2020 to 2022.</p>
-        </article>
-    </a> -->
-    {#each projects as p}
+    {#each filteredProjects as p}
         <Project data={p} />
     {/each}
-    <!-- <article>
-        <h2>Quis debitis id nulla!</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Nemo ut, et quasi ex laborum nihil possimus omnis suscipit at aliquid soluta libero. Fugiat soluta hic dignissimos dolorem distinctio, provident culpa illum rem id mollitia esse praesentium ullam. Vitae!</p>
-    </article>
-    <article>
-        <h2>Cupiditate itaque dignissimos debitis?</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Molestiae fuga, saepe dolorum enim deserunt ipsum, quisquam necessitatibus porro placeat reprehenderit temporibus inventore quo harum nisi qui id dolores officia odio voluptate, dolor ipsam fugit! In laboriosam aut accusamus?</p>
-    </article>
-    <article>
-        <h2>Unde esse at voluptatum.</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Necessitatibus temporibus dolores, nulla facilis veniam impedit. Explicabo, adipisci alias nulla est, quasi velit voluptates doloremque error quidem repellendus atque quaerat, voluptatum iure itaque! Quasi suscipit obcaecati est fuga consequatur.</p>
-    </article>
-    <article>
-        <h2>Aspernatur neque enim itaque.</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Quaerat nobis sapiente quisquam at explicabo officia. Consequatur maxime minima nam cumque nisi labore amet accusantium ipsam aperiam, ab suscipit hic iure molestias! Odit commodi consequatur, velit saepe numquam voluptate!</p>
-    </article>
-    <article>
-        <h2>Nisi sed illum aut!</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Eius eligendi dolorum quas ad, neque expedita, vitae ex dolores beatae omnis fugit incidunt cupiditate dolorem quis architecto modi id assumenda culpa esse exercitationem suscipit tempore debitis facere? Dignissimos, accusantium?</p>
-    </article>
-    <article>
-        <h2>Aliquam quia in quae?</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Deserunt doloremque quas atque non! Enim quae excepturi accusamus cum soluta. Totam nobis nulla corrupti voluptatibus, qui animi ea facere! Expedita similique ratione error eveniet at omnis dolorum neque cupiditate.</p>
-    </article>
-    <article>
-        <h2>Ipsa, adipisci odio? Fugiat?</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Similique, quis qui. Consequuntur harum inventore accusantium quis quam officiis ut quidem eaque excepturi assumenda! Quisquam sequi mollitia nam quis recusandae, neque suscipit debitis blanditiis alias autem deserunt, sed accusamus!</p>
-    </article>
-    <article>
-        <h2>Doloremque ex maxime omnis.</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Nihil sunt temporibus, excepturi veritatis reiciendis nam consequatur ipsum possimus assumenda quas praesentium fugit tenetur nostrum obcaecati rem error sint suscipit aspernatur beatae. Repellat eaque cumque eligendi, velit veniam quam?</p>
-    </article>
-    <article>
-        <h2>At repellat nobis cumque!</h2>
-        <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
-        <p>Ex nesciunt aliquid eligendi vitae autem vero necessitatibus consequatur, corrupti dolor qui obcaecati esse dolorem id quas, asperiores quos! Architecto fuga blanditiis autem cum eveniet beatae accusamus saepe aut vitae.</p>
-    </article> -->
 </div>
+<style>
+    input {
+        width: 100%;
+    }
+</style>
