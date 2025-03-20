@@ -22,16 +22,20 @@
 
     let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
+    export let selectedIndex = -1;
+
 </script>
 <div class="container">
 	<svg viewBox="-50 -50 100 100">
         {#each arcs as arc, index}
-            <path d={ arc } fill={ colors(index) } />
+            <path d={arc} fill={ colors(index) }
+                class:selected={selectedIndex === index}
+                on:click={e => selectedIndex = selectedIndex === index ? -1 : index} />
         {/each}
     </svg>
 	<ul class="legend">
         {#each data as d, index}
-            <li style="--color: { colors(index) }">
+            <li style="--color: { colors(index) }" class:selected={selectedIndex === index}>
                 <span class="swatch"></span>
                 {d.label} <em>({d.value})</em>
             </li>
@@ -46,6 +50,41 @@
         /* Do not clip shapes outside the viewBox */
         overflow: visible;
     }
+
+    svg:has(path:hover) path:not(:hover) {
+        opacity: 50%;
+    }
+
+    path {
+        transition: 300ms;
+    }
+
+    /* When a path is selected, make all non-selected paths 50% opacity */
+    svg:has(.selected) path:not(.selected) {
+    opacity: 50%;
+    }
+
+    .selected {
+        --color: color-mix(in oklch, var(--color-accent), black 75%) !important;
+        
+        &:is(path) {
+            fill: var(--color) !important;
+        }
+        
+        &:is(li) {
+            color: var(--color);
+        }
+    }
+
+    ul:has(.selected) li:not(.selected) {
+        color: gray;
+    }
+
+    path:hover {
+        opacity: 100% !important;
+    }
+
+
     .swatch {
         display: inline-flex;
         width: 8px;
