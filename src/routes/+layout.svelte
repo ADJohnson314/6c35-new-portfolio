@@ -7,7 +7,7 @@
     { url: "./projects", title: "Projects" },
     { url: "./contact", title: "Contact" },
     { url: "./resume", title: "Resume" },
-    /*{ url: "./meta", title: "Meta" },*/
+    { url: "./meta", title: "Meta" },
     {url: "https://github.com/ADJohnson314", title: "Github"},
     ];
 
