@@ -34,7 +34,7 @@
         {#each pages as p}
             <a
             href={p.url}
-            class:current={$page.route.id === p.url}
+            class:current={"." + $page.route.id === p.url}
             target={p.url.startsWith("http") ? "_blank" : null}
             >
                 {p.title}
