@@ -9,6 +9,7 @@
     autoPlacement,
     offset,
   } from '@floating-ui/dom';
+  import Bar from '$lib/Bar.svelte';
 
 
   let width = 1000, height = 600;
@@ -18,6 +19,7 @@
   let commitTooltip;
   let tooltipPosition = {x: 0, y: 0};
   let rScale = [];
+  let clickedCommits = [];
 
   let usableArea = {
     top: margin.top,
@@ -61,6 +63,15 @@
   $: yScale = d3.scaleLinear()
                 .domain([24, 0])
                 .range([usableArea.bottom, usableArea.top]);
+
+  $: allTypes = Array.from(new Set(data.map(d => d.type)));
+  $: selectedLines = (clickedCommits.length > 0 ? clickedCommits : commits).flatMap(d => d.lines);
+  $: selectedCounts = d3.rollup(
+      selectedLines,
+      v => v.length,
+      d => d.type
+  );
+  $: languageBreakdown = allTypes.map(type => [type, selectedCounts.get(type) || 0]);
 
 
   onMount(async () => {
@@ -116,6 +127,17 @@
     else if (evt.type === "mouseleave") {
       hoveredIndex = -1
     }
+    else if (evt.type === "click") {
+      let commit = commits[index]
+      if (!clickedCommits.includes(commit)) {
+        // Add the commit to the clickedCommits array
+        clickedCommits = [...clickedCommits, commit];
+      }
+      else {
+          // Remove the commit from the array
+          clickedCommits = clickedCommits.filter(c => c !== commit);
+      }
+    }
   }
 </script>
 
@@ -144,14 +166,17 @@
       <circle
         on:mouseenter={evt => dotInteraction(index, evt)}
         on:mouseleave={evt => dotInteraction(index, evt)}
+        on:click={ evt => dotInteraction(index, evt) }
+        class:selected={ clickedCommits.includes(commit) }
         cx={ xScale(commit.datetime) }
         cy={ yScale(commit.hourFrac) }
         r="{ rScale(commit.totalLines) }"
         fill="steelblue"
       />
     {/each}
-    </g>     
+    </g>   
 </svg>
+<Bar data={languageBreakdown} width={width} />  
 <dl class="info tooltip" hidden={hoveredIndex === -1} style="top: {tooltipPosition.y}px; left: {tooltipPosition.x}px" bind:this={commitTooltip}>
   <dt>Commit</dt>
   <dd><a href="{ hoveredCommit.url }" target="_blank">{ hoveredCommit.id }</a></dd>
@@ -212,6 +237,10 @@
       transform: scale(1.5);
       fill-opacity: 100%;
     }
+  }
+
+  .selected {
+    fill: var(--color-accent);
   }
 
 </style>
