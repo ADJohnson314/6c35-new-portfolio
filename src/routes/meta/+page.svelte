@@ -17,6 +17,7 @@
   let margin = {top: 10, right: 10, bottom: 30, left: 20};
   let commitTooltip;
   let tooltipPosition = {x: 0, y: 0};
+  let rScale = [];
 
   let usableArea = {
     top: margin.top,
@@ -94,7 +95,11 @@
 
       return ret;
     });
-    console.log(commits);
+
+    // console.log(commits);
+    commits = d3.sort(commits, d => -d.totalLines);
+    let extent = d3.extent(commits, (c) => c.totalLines);
+    rScale = d3.scaleSqrt(extent, [2, 30])
   });
 
   async function dotInteraction (index, evt) {
@@ -141,7 +146,7 @@
         on:mouseleave={evt => dotInteraction(index, evt)}
         cx={ xScale(commit.datetime) }
         cy={ yScale(commit.hourFrac) }
-        r="5"
+        r="{ rScale(commit.totalLines) }"
         fill="steelblue"
       />
     {/each}
@@ -201,9 +206,11 @@
 	  transition: 200ms;
     transform-origin: center;
     transform-box: fill-box;
+    fill-opacity: 50%;
 
     &:hover {
       transform: scale(1.5);
+      fill-opacity: 100%;
     }
   }
 
